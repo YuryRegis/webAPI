@@ -4,20 +4,23 @@ WebAPI utilizando Node + Typescript
 
 # Requisitos
 
-* Deve ser possivel criar uma conta;
-* Deve ser possivel buscar extrato extrato bancario do cliente;
-* Deve ser possivel realizar deposito;
-* Deve ser possivel realizar saque;
-* Deve ser possivel buscar extrato por data;
-* Deve ser possivel atualizar dados da conta do clente;
-* Deve ser possivel obter dados da conta do cliente;
-* Deve ser possivel deletar conta do cliente
+    - Devolva uma lista de registros
+    - Opcional: permitir filtros
+    - Adicione um registro a lista
+    - Remove um registro da lista
+    - Atualiza um registro da lista
 
-# Regras de Negócio
 
-* Não pode ser cadastrado cliente com CPF já existente;
-* Não deve ser possivel sacar/depositar de conta inexistente;
-* Não deve ser possível obter extrato de conta inexistente;
-* Não deve ser possivel excluir conta inexistente;
-* Não deve ser possivel sacar de contas com saldo insuficiente;
+# Build
 
+``` $ yarn install ```
+``` $ yarn build ```
+
+# Run locally (dev)
+
+``` $ yarn dev ```
+
+# Insomnia Config File (raw)
+
+[Git](https://github.com/YuryRegis/webAPI/blob/main/InsomniaConfig.json) <br/>
+[Raw file](https://raw.githubusercontent.com/YuryRegis/webAPI/main/InsomniaConfig.json)
