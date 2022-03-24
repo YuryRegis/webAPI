@@ -5,8 +5,8 @@
   "repository": "https://github.com/YuryRegis/webAPI.git",
   "license": "MIT",
   "scripts": {
-    "dev": "",
     "build": "tsc",
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn ./src/index.ts",
     "start": "node ./dist/index.js"
   },
   "dependencies": {
@@ -15,6 +15,9 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.13"
+    "@types/express": "^4.17.13",
+    "@types/uuid": "^8.3.4",
+    "nodemon": "^2.0.15",
+    "ts-node-dev": "^1.1.8"
   }
 }

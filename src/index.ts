@@ -1,11 +1,11 @@
 import express from 'express'
+import heroesRoute from './routes/heroes'
 
 
 const app = express()
 
-app.post('/account', (request, response) => {
- 
-    response.json({message: 'Hello World'})
-})
+app.use(express.json())
+
+app.use(heroesRoute)
 
 app.listen(3000)
