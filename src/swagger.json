@@ -1,0 +1,337 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "webAPI",
+        "version": "1.0.0",
+        "description": "webAPI documentation",
+        "contact": {
+            "name": "Yury Regis (Harry) - contact me",
+            "url": "https://www.linkedin.com/in/yuryregis/"
+        }
+    },
+    "paths": {
+        "/heroes": {
+            "post": {
+                "tags": [
+                    "Heroes"
+                ],
+                "summary": "Create hero",
+                "description": "Create a new hero",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "resume": {
+                                        "type": "string"
+                                    },                                            
+                                    "power": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Batman",
+                                    "power": 90,
+                                    "resume": "Batman is a fictional superhero appearing in American comic books published by DC Comics."
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "message": "Hero created"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "message": "Hero already exists"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        },
+        "/": {
+            "get": {
+                "tags": ["Heroes"],
+                "summary": "Get all Heroes",
+                "description": "Get a Hero list",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "resume": {
+                                            "type": "string"
+                                        },                                            
+                                        "power": {
+                                            "type": "integer"
+                                        },
+                                        "createdAt": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "id": "9a7ff42b-145e-4ddb-9a2e-37b0907a4bff",    
+                                        "name": "Batman",
+                                        "power": 90,
+                                        "resume": "Batman is a fictional superhero appearing in American comic books published by DC Comics.",
+                                        "createdAt": "2020-05-06T16:00:00.000Z"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/heroes/{id}": {
+            "get": {
+                "tags": ["Heroes"],
+                "summary": "Get Hero",
+                "description": "Get a Hero by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Hero ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "9a7ff42b-145e-4ddb-9a2e-37b0907a4bff"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "resume": {
+                                            "type": "string"
+                                        },                                            
+                                        "power": {
+                                            "type": "integer"
+                                        },
+                                        "createdAt": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "id": "9a7ff42b-145e-4ddb-9a2e-37b0907a4bff",    
+                                        "name": "Batman",
+                                        "power": 90,
+                                        "resume": "Batman is a fictional superhero appearing in American comic books published by DC Comics.",
+                                        "createdAt": "2020-05-06T16:00:00.000Z"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "message": "Hero not exists"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/heroes/update": {
+            "put": {
+                "tags": ["Heroes"],
+                "summary": "Update Hero",
+                "description": "Update a Hero info by ID",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "required": false
+                                    },
+                                    "resume": {
+                                        "type": "string",
+                                        "required": false
+                                    },                                            
+                                    "power": {
+                                        "type": "integer",
+                                        "required": false
+                                    }
+                                },
+                                "example": {
+                                    "id": "9a7ff42b-145e-4ddb-9a2e-37b0907a4bff",
+                                    "name": "Robin"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "message": "Hero updated"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "message": "Hero not exists"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/heroes/{uuid}": {
+            "delete": {
+                "tags": ["Heroes"],
+                "summary": "Delete Hero",
+                "description": "Delete a Hero by ID",
+                "parameters": [
+                    {
+                        "id": "id",
+                        "in": "path",
+                        "description": "Hero UUID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "9a7ff42b-145e-4ddb-9a2e-37b0907a4bff"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "name": "Hero deleted"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "message": "Hero not exists"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
