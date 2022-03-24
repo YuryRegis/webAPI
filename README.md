@@ -24,3 +24,9 @@ WebAPI utilizando Node + Typescript
 
 [Git](https://github.com/YuryRegis/webAPI/blob/main/InsomniaConfig.json) <br/>
 [Raw file](https://raw.githubusercontent.com/YuryRegis/webAPI/main/InsomniaConfig.json)
+
+# Documentation (Swagger)
+
+``` $ yarn dev ``` <br/>
+[http://localhost:3000/api-docs/#/](http://localhost:3000/api-docs/#/)
+
